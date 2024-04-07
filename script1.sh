@@ -10,9 +10,10 @@ if [ ! -d "$1" ]; then
 fi
 
 if [ "$2" == "files" ]; then
-  ls -p "$1" | grep -v / 
-elif [ "$2" == "directories" ]; then
-  ls -p "$1" | grep / | sed 's/\/$//'
+  'ls -p "$1" | grep -v /'
+else
+   if [ "$2" == "directories" ]; then
+      ls -p "$1" | grep / | sed 's/\/$//'
 else
   echo "Выберите что вы хотите получить (files или directories)"
   exit 1
